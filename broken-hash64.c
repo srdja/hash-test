@@ -1,8 +1,8 @@
 #include "defs.h"
-#include "broken-hash.h"
+#include "broken-hash64.h"
 
 
-FORCE_INLINE uint64_t rotl64(uint64_t x, int8_t r)
+FORCE_INLINE static uint64_t rotl64(uint64_t x, int8_t r)
 {
     return (x << r) | (x >> (64 - r));
 }
@@ -12,7 +12,7 @@ FORCE_INLINE uint64_t rotl64(uint64_t x, int8_t r)
 #define BIG_CONSTANT(x) (x##LLU)
 
 
-FORCE_INLINE uint64_t fmix64(uint64_t k)
+FORCE_INLINE static uint64_t fmix64(uint64_t k)
 {
     k ^= k >> 33;
     k *= BIG_CONSTANT(0xff51afd7ed558ccd);
@@ -26,7 +26,7 @@ FORCE_INLINE uint64_t fmix64(uint64_t k)
 /*
  * MurmurHash3 the 64bit variant that hashes the pointer itself
  */
-uint64_t broken_hash(const void *key, int len, uint32_t seed)
+uint64_t broken_hash64(const void *key, int len, uint32_t seed)
 {
     const int nblocks = len / 4;
 

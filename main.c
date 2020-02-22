@@ -6,8 +6,10 @@
 #include <unistd.h>
 
 
-#include "fixed-hash.h"
-#include "broken-hash.h"
+#include "fixed-hash64.h"
+#include "fixed-hash32.h"
+#include "broken-hash64.h"
+#include "broken-hash32.h"
 #include "defs.h"
 #include "draw.h"
 
@@ -56,18 +58,29 @@ int main(int argc, char *argv[])
 {
     srand(time(NULL));
 
-    int **heap_ints      = alloc_array_of_ints();
+    int **heap_ints        = alloc_array_of_ints();
 
-    int *fixed_hash_map  = get_collision_map(heap_ints, fixed_hash);
-    int *pointer_map     = get_collision_map(heap_ints, no_hash);
-    int *random_map      = get_collision_map(heap_ints, random_hash);
-    int *broken_hash_map = get_collision_map(heap_ints, broken_hash);
+    int *fixed_hash_map64  = get_collision_map(heap_ints, fixed_hash64);
+    int *broken_hash_map64 = get_collision_map(heap_ints, broken_hash64);
 
-    printf("Writing fixed hash image...\n");
-    draw_png(FILE_HASH_FIXED, fixed_hash_map, THRESHOLD);
+    int *broken_hash_map32 = get_collision_map(heap_ints, broken_hash32);
+    int *fixed_hash_map32  = get_collision_map(heap_ints, fixed_hash32);
 
-    printf("Writing broken hash image...\n");
-    draw_png(FILE_HASH_BROKEN, broken_hash_map, THRESHOLD);
+    int *pointer_map       = get_collision_map(heap_ints, no_hash);
+    int *random_map        = get_collision_map(heap_ints, random_hash);
+
+
+    printf("Writing fixed hash64 image...\n");
+    draw_png(FILE_HASH_FIXED64, fixed_hash_map64, THRESHOLD);
+
+    printf("Writing fixed hash32 image...\n");
+    draw_png(FILE_HASH_FIXED32, fixed_hash_map32, THRESHOLD);
+
+    printf("Writing broken hash64 image...\n");
+    draw_png(FILE_HASH_BROKEN64, broken_hash_map64, THRESHOLD);
+
+    printf("Writing broken hash32 image...\n");
+    draw_png(FILE_HASH_BROKEN32, broken_hash_map32, THRESHOLD);
 
     printf("Writing plain pointer image...\n");
     draw_png(FILE_POINTER, pointer_map, THRESHOLD);

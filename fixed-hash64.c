@@ -1,4 +1,4 @@
-#include "fixed-hash.h"
+#include "fixed-hash64.h"
 #include "defs.h"
 
 
@@ -23,7 +23,7 @@ static FORCE_INLINE uint32_t rotl32 ( uint32_t x, int8_t r )
 }
 
 
-uint64_t fixed_hash(const void *key, int len, uint32_t seed)
+uint64_t fixed_hash64(const void *key, int len, uint32_t seed)
 {
     uint32_t h1 = seed;
     uint32_t h2 = seed;

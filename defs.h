@@ -19,10 +19,14 @@
 #define THRESHOLD 8
 
 
-#define FILE_HASH_FIXED  "fixed-hash.png"
-#define FILE_HASH_BROKEN "hash-broken.png"
-#define FILE_POINTER     "pointer.png"
-#define FILE_RANDOM      "random.png"
+#define FILE_HASH_FIXED64  "fixed-hash64.png"
+#define FILE_HASH_BROKEN64 "hash-broken64.png"
+#define FILE_HASH_FIXED32  "fixed-hash32.png"
+#define FILE_HASH_BROKEN32 "broken-hash32.png"
+
+
+#define FILE_POINTER       "pointer.png"
+#define FILE_RANDOM        "random.png"
 
 
 #endif
