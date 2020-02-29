@@ -7,7 +7,7 @@ Visualizing hash table index distribution and showing how easy it is to mess up 
 
 ## Broken murmur3 hash
 
-![broken hash](https://raw.githubusercontent.com/srdja/hash-test/master/hash-broken.png)
+![broken hash](https://raw.githubusercontent.com/srdja/hash-test/master/hash-broken64.png)
 
 ## Unhashed pointers 
 
@@ -15,4 +15,4 @@ Visualizing hash table index distribution and showing how easy it is to mess up 
 
 ## Fixed murmur3 hash
 
-![fixed hash](https://raw.githubusercontent.com/srdja/hash-test/master/fixed-hash.png)
+![fixed hash](https://raw.githubusercontent.com/srdja/hash-test/master/fixed-hash64.png)
